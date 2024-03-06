@@ -10,8 +10,6 @@
     CVR - Data Filter
 </header>
 
-
-
 <main>
     <label for="nameInput">Enter Name:</label>
     <input type="text" id="nameInput" placeholder="Name">
@@ -24,16 +22,13 @@
     <table id="dataTable"></table>
 </main>
 
-
-
 <script>
-    document.getElementById('loadData').addEventListener('click', function () {
+    function loadData() {
       const nameInput = document.getElementById('nameInput').value.trim().toLowerCase();
       const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRr9KFdCWZkAT5KQq3DkQYZYQdTsjtQ7YI_U1-vasToAgPmrDCmOIRLxIQEMTllH2a9KTI5b0SWXZmG/pub?output=csv';
 
       if (nameInput === "") {
         document.getElementById('invalidInputMsg').style.display = 'block';
-
         document.getElementById('loadingSpinner').style.display = 'none'; // Hide loading spinner
         return;
       } else {
@@ -60,8 +55,19 @@
         .finally(() => {
           document.getElementById('loadingSpinner').style.display = 'none'; // Hide loading spinner
         });
+    }
+
+    // Event listener for the Enter key
+    document.getElementById('nameInput').addEventListener('keyup', function(event) {
+      if (event.key === 'Enter') {
+        loadData();
+      }
     });
 
+    // Event listener for the "Load Data" button click
+    document.getElementById('loadData').addEventListener('click', loadData);
+
+    // Event listener for the "View Full Table" button click
     document.getElementById('viewFullTable').addEventListener('click', function () {
       // Show the full table
       fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRr9KFdCWZkAT5KQq3DkQYZYQdTsjtQ7YI_U1-vasToAgPmrDCmOIRLxIQEMTllH2a9KTI5b0SWXZmG/pub?output=csv')
