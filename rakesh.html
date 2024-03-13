@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>DISPOSABLE MANAGEMENT-CVR</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333; /* Black background */
+            color: #fff; /* White text */
+        }
+
+        header {
+            background-color: #f90; /* Orange header */
+            padding: 20px 0;
+            text-align: center;
+            color: #333; /* Black text */
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            background-color: #444; /* Gray navigation */
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #444; /* Gray background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        label {
+            font-size: 18px;
+            margin-right: 10px;
+            display: block;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        input {
+            width: 70%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            text-transform: lowercase; /* Convert input to lowercase */
+        }
+
+        button {
+            padding: 14px 20px;
+            background-color: #f90; /* Orange button */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d38000; /* Darker shade of orange on hover */
+        }
+
+        .invalid-input {
+            color: red;
+            font-size: 16px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            font-size: 16px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+
+        th {
+            background-color: #f90; /* Orange header in the table */
+            color: #fff;
+        }
+
+        td {
+            background-color: #666; /* Dark gray background in the table */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #444; /* Gray footer */
+            color: #fff;
+        }
+
+        #loadingSpinner {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .lds-spinner {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+
+        .lds-spinner div {
+            transform-origin: 40px 40px;
+            animation: lds-spinner 1.2s linear infinite;
+        }
+
+        .lds-spinner div:after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 3px;
+            left: 37px;
+            width: 6px;
+            height: 18px;
+            border-radius: 20%;
+            background: #fff; /* White color for the loading spinner */
+        }
+
+        .lds-spinner div:nth-child(1) {
+            transform: rotate(0deg);
+            animation-delay: -1.1s;
+        }
+
+        .lds-spinner div:nth-child(2) {
+            transform: rotate(30deg);
+            animation-delay: -1s;
+        }
+
+        .lds-spinner div:nth-child(3) {
+            transform: rotate(60deg);
+            animation-delay: -0.9s;
+        }
+
+        .lds-spinner div:nth-child(4) {
+            transform: rotate(90deg);
+            animation-delay: -0.8s;
+        }
+
+        .lds-spinner div:nth-child(5) {
+            transform: rotate(120deg);
+            animation-delay: -0.7s;
+        }
+
+        .lds-spinner div:nth-child(6) {
+            transform: rotate(150deg);
+            animation-delay: -0.6s;
+        }
+
+        .lds-spinner div:nth-child(7) {
+            transform: rotate(180deg);
+            animation-delay: -0.5s;
+        }
+
+        .lds-spinner div:nth-child(8) {
+            transform: rotate(210deg);
+            animation-delay: -0.4s;
+        }
+
+        .lds-spinner div:nth-child(9) {
+            transform: rotate(240deg);
+            animation-delay: -0.3s;
+        }
+
+        .lds-spinner div:nth-child(10) {
+            transform: rotate(270deg);
+            animation-delay: -0.2s;
+        }
+
+        .lds-spinner div:nth-child(11) {
+            transform: rotate(300deg);
+            animation-delay: -0.1s;
+        }
+
+        .lds-spinner div:nth-child(12) {
+            transform: rotate(330deg);
+            animation-delay: 0s;
+        }
+
+        @keyframes lds-spinner {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    CVR - Data Filter
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main>
+    <label for="nameInput">Enter Name:</label>
+    <input type="text" id="nameInput" placeholder="Name">
+    <button id="loadData">Load Data</button>
+    <div class="invalid-input" id="invalidInputMsg">Input is invalid. Please provide a valid input.</div>
+    <div id="loadingSpinner" class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <table id="dataTable"></table>
+</main>
+
+<footer>
+    &copy; 2024 CVR Company. All rights reserved.
+</footer>
+
+
+<script>
+    function loadData() {
+        const nameInput = document.getElementById('nameInput').value.trim().toLowerCase();
+        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRr9KFdCWZkAT5KQq3DkQYZYQdTsjtQ7YI_U1-vasToAgPmrDCmOIRLxIQEMTllH2a9KTI5b0SWXZmG/pub?output=csv';
+
+        if (nameInput === "") {
+            document.getElementById('invalidInputMsg').style.display = 'block';
+            document.getElementById('dataTable').innerHTML = ''; // Clear table on invalid input
+            document.getElementById('loadingSpinner').style.display = 'none'; // Hide loading spinner
+            return;
+        } else {
+            document.getElementById('invalidInputMsg').style.display = 'none';
+        }
+
+        document.getElementById('loadingSpinner').style.display = 'block'; // Show loading spinner
+
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                const rows = data.split('\n').slice(1); // Skip header row
+                const filteredRows = rows.filter(row => {
+                    const cells = row.split(',');
+                    // Assuming the 'Name' is in the first column
+                    return cells[0].trim().toLowerCase() === nameInput;
+                });
+                displayData(filteredRows);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('loadingSpinner').style.display = 'none'; // Hide loading spinner in case of an error
+            })
+            .finally(() => {
+                document.getElementById('loadingSpinner').style.display = 'none'; // Hide loading spinner
+            });
+    }
+
+    // Event listener for the "Load Data" button click
+    document.getElementById('loadData').addEventListener('click', loadData);
+
+    // Event listener for the Enter key on the nameInput field
+    document.getElementById('nameInput').addEventListener('keyup', function (event) {
+        if (event.key === 'Enter') {
+            loadData();
+        }
+    });
+
+    function displayData(rows) {
+        let html = '<table><tr><th>Name</th><th>Dept No</th><th>Complaint</th><th>Treatment1</th><th>Treatment2</th></tr>';
+        rows.forEach(row => {
+            const cells = row.split(',');
+            html += `<tr><td>${cells[0]}</td><td>${cells[1]}</td><td>${cells[2]}</td><td>${cells[3]}</td><td>${cells[4]}</td></tr>`;
+        });
+        html += '</table>';
+        document.getElementById('dataTable').innerHTML = html;
+    }
+</script>
+
+
+</body>
+
+</html>
