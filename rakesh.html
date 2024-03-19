@@ -241,14 +241,16 @@
     <label for="nameInput">Enter Name:</label>
     <input type="text" id="nameInput" placeholder="Name">
     <button id="loadData">Load Data</button>
-    <div class="invalid-input" id="invalidInputMsg">Input is invalid. Please provide a valid input.</div>
-    <div id="loadingSpinner" class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-    <table id="dataTable"></table>
     <a href='https://app-ydgu.onrender.com/' target="_blank"> 
         <button >
             enter data
         </button> 
     </a> 
+    <button id="viewFullTable">View Full Table</button>
+    <div class="invalid-input" id="invalidInputMsg">Input is invalid. Please provide a valid input.</div>
+    <div id="loadingSpinner" class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <table id="dataTable"></table>
+   
 
 </main>
 
@@ -303,14 +305,27 @@
         }
     });
 
-    function displayData(rows) {
-        let html = '<table><tr><th>Name</th><th>Dept No</th><th>Complaint</th><th>Treatment1</th><th>Treatment2</th></tr>';
-        rows.forEach(row => {
-            const cells = row.split(',');
-            html += `<tr><td>${cells[0]}</td><td>${cells[1]}</td><td>${cells[2]}</td><td>${cells[3]}</td><td>${cells[4]}</td></tr>`;
+    document.getElementById('viewFullTable').addEventListener('click', function () {
+      // Show the full table
+      fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRr9KFdCWZkAT5KQq3DkQYZYQdTsjtQ7YI_U1-vasToAgPmrDCmOIRLxIQEMTllH2a9KTI5b0SWXZmG/pub?output=csv')
+        .then(response => response.text())
+        .then(data => {
+          const rows = data.split('\n').slice(1); // Skip header row
+          displayData(rows);
+        })
+        .catch(error => {
+          console.error('Error:', error);
         });
-        html += '</table>';
-        document.getElementById('dataTable').innerHTML = html;
+    });
+
+    function displayData(rows) {
+      let html = '<table><tr><th>Name</th><th>Dept No</th><th>Complaint</th><th>Treatment1</th><th>Treatment2</th></tr>';
+      rows.forEach(row => {
+        const cells = row.split(',');
+        html += `<tr><td>${cells[0]}</td><td>${cells[1]}</td><td>${cells[2]}</td><td>${cells[3]}</td><td>${cells[4]}</td></tr>`;
+      });
+      html += '</table>';
+      document.getElementById('dataTable').innerHTML = html;
     }
 </script>
 
