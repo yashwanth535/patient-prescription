@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>DISPENSARY MANAGEMENT-CVR</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+<header>
+    CVR - Data Filter
+</header>
+<nav>
+  <a href="https://yashwanth679.github.io/vishnu/rakesh.html">Home</a>
+  <a href="https://yashwanth679.github.io/vishnu/about.html" target="_blank">About</a>
+  <a href="https://yashwanth679.github.io/vishnu/contact.html" target="_blank">Contact</a>
+</nav>
+
+<main id="loginPage">
+    <!-- Login form -->
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Login</button>
+    </form>
+    <!-- End of login form -->
+</main>
+
+<main id="mainContent" style="display: none;">
+  <label for="nameInput">Enter Name:</label>
+  <input type="text" id="nameInput" placeholder="Name">
+  <button id="loadData">Load Data</button>
+  <a href='https://cvr-1bsr.onrender.com/' target="_blank"> 
+      <button >
+          enter data
+      </button> 
+  </a> 
+  <button id="viewFullTable">View Full Table</button>
+  <div class="invalid-input" id="invalidInputMsg">Input is invalid. Please provide a valid input.</div>
+ 
+  <table id="dataTable"></table>
+ 
+
+</main>
+
+<footer>
+    &copy; 2024 CVR Company. All rights reserved.
+</footer>
+
+<script>
+    // Function to handle login
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Get the entered username and password
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        // Check if the credentials are correct
+        if (username === 'user' && password === 'user') {
+            // Hide the login page and show the main content
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+        } else {
+            alert('Invalid username or password. Please try again.');
+        }
+    });
+
+    // Function to load data
+    function loadData() {
+        const nameInput = document.getElementById('nameInput').value.trim().toLowerCase();
+        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRr9KFdCWZkAT5KQq3DkQYZYQdTsjtQ7YI_U1-vasToAgPmrDCmOIRLxIQEMTllH2a9KTI5b0SWXZmG/pub?output=csv';
+
+        if (nameInput === "") {
+            document.getElementById('invalidInputMsg').style.display = 'block';
+            document.getElementById('dataTable').innerHTML = ''; // Clear table on invalid input
+            
+            return;
+        } 
+        else {
+            document.getElementById('invalidInputMsg').style.display = 'none';
+        }
+
+       
+
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                const rows = data.split('\n').slice(1); // Skip header row
+                const filteredRows = rows.filter(row => {
+                    const cells = row.split(',');
+                    // Assuming the 'Name' is in the first column
+                    return cells[0].trim().toLowerCase() === nameInput;
+                });
+                displayData(filteredRows);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('loadingSpinner').style.display = 'none'; // Hide loading spinner in case of an error
+            })
+            .finally(() => {
+                document.getElementById('loadingSpinner').style.display = 'none'; // Hide loading spinner
+            });
+    }
+
+    // Event listener for the "Load Data" button click
+    document.getElementById('loadData').addEventListener('click', loadData);
+
+    // Event listener for the Enter key on the nameInput field
+    document.getElementById('nameInput').addEventListener('keyup', function (event) {
+        if (event.key === 'Enter') {
+            loadData();
+        }
+    });
+
+    document.getElementById('viewFullTable').addEventListener('click', function () {
+      // Show the full table
+      fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRr9KFdCWZkAT5KQq3DkQYZYQdTsjtQ7YI_U1-vasToAgPmrDCmOIRLxIQEMTllH2a9KTI5b0SWXZmG/pub?output=csv')
+        .then(response => response.text())
+        .then(data => {
+          const rows = data.split('\n').slice(1); // Skip header row
+          displayData(rows);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
+
+    function displayData(rows) {
+      let html = '<table><tr><th>Name</th><th>Dept Name</th><th>Complaint</th><th>Treatment</th><th>prescribed by</th><th>Date</th><th>Quantity</th></tr>';
+      rows.forEach(row => {
+        const cells = row.split(',');
+        html += `<tr><td>${cells[0]}</td><td>${cells[1]}</td><td>${cells[2]}</td><td>${cells[3]}</td><td>${cells[4]}</td><td>${cells[5]}</td><td>${cells[6]}</td></tr>`;
+      });
+      html += '</table>';
+      document.getElementById('dataTable').innerHTML = html;
+    }
+</script>
+
+
+</body>
+
+</html>
