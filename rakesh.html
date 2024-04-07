@@ -35,8 +35,10 @@
     </a> 
     <button id="viewFullTable">View Full Table</button>
     <div class="invalid-input" id="invalidInputMsg">Input is invalid. Please provide a valid input.</div>
+   <!-- Place this div where your table will be loaded -->
+<div class="table-responsive" id="dataTable"></div>
+
    
-    <table id="dataTable"></table>
    
 
 </main>
@@ -107,14 +109,16 @@
     });
 
     function displayData(rows) {
-      let html = '<table><tr><th>Name</th><th>Dept Name</th><th>Complaint</th><th>Treatment</th><th>prescribed by</th><th>Date</th><th>Quantity</th></tr>';
-      rows.forEach(row => {
-        const cells = row.split(',');
-        html += `<tr><td>${cells[0]}</td><td>${cells[1]}</td><td>${cells[2]}</td><td>${cells[3]}</td><td>${cells[4]}</td><td>${cells[5]}</td><td>${cells[6]}</td></tr>`;
-      });
-      html += '</table>';
-      document.getElementById('dataTable').innerHTML = html;
-    }
+    let html = '<table><tr><th>Name</th><th>Dept Name</th><th>Complaint</th><th>Treatment</th><th>Prescribed by</th><th>Date</th><th>Quantity</th></tr>';
+    rows.forEach(row => {
+      const cells = row.split(',');
+      html += `<tr><td>${cells[0]}</td><td>${cells[1]}</td><td>${cells[2]}</td><td>${cells[3]}</td><td>${cells[4]}</td><td>${cells[5]}</td><td>${cells[6]}</td></tr>`;
+    });
+    html += '</table>';
+    // Here, we are setting the innerHTML of the 'dataTable' div to the constructed table HTML
+    document.getElementById('dataTable').innerHTML = html;
+}
+
 </script>
 
 

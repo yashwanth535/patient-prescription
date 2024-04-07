@@ -1,91 +1,69 @@
-
+/* Warm & Cozy Design */
 
 /* Body styles */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f8efef;
-  color: #fff;
+  font-family: 'Georgia', serif;
+  background-color: #fdf6e3;
+  color: #657b83;
 }
 
 /* Header styles */
 header {
-  background-color: #f1f2eb;
+  background-color: #eee8d5;
   padding: 20px 0;
   text-align: center;
-  color: #000;
+  color: #586e75;
   font-size: 24px;
   font-weight: bold;
 }
 
 /* Navigation styles */
 nav {
-  background-color: #0b0202;
+  background-color: #b58900;
   padding: 10px 0;
   text-align: center;
 }
 
 nav a {
-  color: #fff;
+  color: #fdf6e3;
   text-decoration: none;
   margin: 0 15px;
   font-weight: bold;
   font-size: 16px;
 }
 
-
 main {
- 
   margin: 20px auto;
-  background-color: #0a0404;
+  background-color: #eee8d5;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Form styles */
-label {
-  font-size: 18px;
-  margin-right: 10px;
-  display: block;
-  margin-bottom: 10px;
-  color: #fff;
+label, input, button {
+  font-family: 'Georgia', serif;
 }
 
-input {
-  width: 70%;
-  padding: 12px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  text-transform: lowercase;
+label {
+  color: #586e75;
+}
+
+input, button {
+  background-color: #fdf6e3;
+  border: 1px solid #93a1a1;
+  color: #586e75;
 }
 
 button {
-  padding: 14px 20px;
-  background-color: #29d829;
+  background-color: #cb4b16;
   color: #fff;
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #063e06;
+  background-color: #dc322f;
 }
-
-.invalid-input {
-  color: red;
-  font-size: 16px;
-  margin-top: 10px;
-  display: none;
-}
-
-/* Table styles */
-/* Table styles */
 table {
   width: 100%;
   margin-top: 20px;
@@ -112,33 +90,19 @@ td {
   color:black;
 }
 
-
-
-
-
-/* Footer styles */
-footer {
-  text-align: center;
-  padding: 20px 0;
-  background-color: #444;
-  color: #fff;
+.table-responsive {
+  overflow-x: auto; /* Enable horizontal scroll */
+  overflow-y: auto; /* Enable vertical scroll if needed */
+  max-height: 400px; /* Adjust based on your preference for height */
+  border: 1px solid #ccc; /* Optional: adds a border around the scrollable area */
+  margin-bottom: 20px;
+  border-radius: 8px; /* Optional: if you want rounded corners */
 }
 
 
-
-/* Media queries for responsiveness */
+/* Responsive adjustments */
 @media only screen and (max-width: 768px) {
-  main {
+  main, input, button {
     width: 90%;
-    padding: 10px;
-  }
-  input {
-    width: 100%;
-    max-width: none;
-  }
-  table {
-    width: auto; /* Set table width to auto for responsiveness */
-    overflow-x: auto; /* Add horizontal scroll for small screens */
   }
 }
-
