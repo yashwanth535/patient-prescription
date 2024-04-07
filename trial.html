@@ -34,6 +34,10 @@
         <br>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
+        <!-- Toggle Button -->
+        <button type="button" id="togglePassword" style="cursor: pointer;">Show</button>
+        
+        
         <br>
         <button type="submit">Login</button>
     </form>
@@ -62,23 +66,52 @@
 </footer>
 
 <script>
+    document.getElementById('togglePassword').addEventListener('click', function () {
+    // Find the password input
+    const passwordInput = document.getElementById('password');
+    // Check the current type and toggle
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+    // Toggle the button text/icon
+    this.textContent = type === 'password' ? 'Show' : 'Hide';
+});
+
     // Function to handle login
     document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
+    event.preventDefault(); // Prevent the default form submission
 
-        // Get the entered username and password
-        var username = document.getElementById('username').value;
-        var password = document.getElementById('password').value;
+    // Get the entered username and password
+    var enteredUsername = document.getElementById('username').value.trim().toLowerCase();
+    var enteredPassword = document.getElementById('password').value;
 
-        // Check if the credentials are correct
-        if (username === 'user' && password === 'user') {
-            // Hide the login page and show the main content
-            document.getElementById('loginPage').style.display = 'none';
-            document.getElementById('mainContent').style.display = 'block';
-        } else {
-            alert('Invalid username or password. Please try again.');
-        }
-    });
+    // URL to your CSV file containing usernames and passwords
+    const credentialsUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRznvbcX5u438VEHag85Q6DlJW4LbrIsvx2Qv8zQCcuPDLT2q4DmluS7ymTeoMeHSab1jkEUBmi_cT1/pub?output=csv";
+
+    fetch(credentialsUrl)
+        .then(response => response.text())
+        .then(data => {
+            const rows = data.split('\n').slice(1); // Skip header row
+            let validCredentials = false;
+            rows.forEach(row => {
+                const [username, password] = row.split(',').map(cell => cell.trim());
+                if (username.toLowerCase() === enteredUsername && password === enteredPassword) {
+                    validCredentials = true;
+                }
+            });
+
+            if (validCredentials) {
+                // Hide the login page and show the main content
+                document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching or parsing credentials:', error);
+        });
+});
+
 
     // Function to load data
     function loadData() {
