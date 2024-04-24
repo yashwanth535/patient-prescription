@@ -10,7 +10,7 @@ body {
 
 /* Header styles */
 header {
-  background-color: #eee8d5;
+ background-color: #eee8d5;
   padding: 20px 0;
   text-align: center;
   color: #586e75;
@@ -43,26 +43,41 @@ main {
 
 /* Form styles */
 label, input, button {
+  
   font-family: 'Georgia', serif;
 }
 
 label {
-  color: #586e75;
+  color: #090c0c;
 }
 
-input, button {
-  background-color: #fdf6e3;
+input{
+  font-size: 16px;
+  padding:7px;
+  background-color: #e3eed8;
   border: 2px solid #93a1a1;
   color: #586e75;
 }
 
 button {
-  background-color: #cb4b16;
-  
+  margin: 0.5vw;
+  background-color: #b58900;
+  padding:3px;
   color: #fff;
   border: none;
 }
-
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top: 6px;
+  height: 30px;
+  background-color: #b58900;
+  color: white;
+  text-align: center;
+  text-
+}
 button:hover {
   background-color: #e3d7d7;
   border: 2px solid #93a1a1;
@@ -106,7 +121,8 @@ td {
 
 /* Responsive adjustments */
 @media only screen and (max-width: 768px) {
-  main, input, button {
+  main, input {
     width: 90%;
   }
+ 
 }
