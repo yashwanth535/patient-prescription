@@ -174,7 +174,7 @@
     });
 
     function displayData(rows) {
-      let html = '<table><tr><th>Name</th><th>Dept Name</th><th>Complaint</th><th>Treatment</th><th>prescribed by</th><th>Date</th><th>Quantity</th></tr>';
+      let html = '<table><tr><th>Name</th><th>Dept Name</th><th>Complaint</th><th>Treatment</th><th>prescribed by</th><th>Date</th><th>Time</th></tr>';
       rows.forEach(row => {
         const cells = row.split(',');
         html += `<tr><td>${cells[0]}</td><td>${cells[1]}</td><td>${cells[2]}</td><td>${cells[3]}</td><td>${cells[4]}</td><td>${cells[5]}</td><td>${cells[6]}</td></tr>`;

@@ -51,18 +51,21 @@ label {
 
 input, button {
   background-color: #fdf6e3;
-  border: 1px solid #93a1a1;
+  border: 2px solid #93a1a1;
   color: #586e75;
 }
 
 button {
   background-color: #cb4b16;
+  
   color: #fff;
   border: none;
 }
 
 button:hover {
-  background-color: #dc322f;
+  background-color: #e3d7d7;
+  border: 2px solid #93a1a1;
+  color:#0d0303;
 }
 table {
   width: 100%;
