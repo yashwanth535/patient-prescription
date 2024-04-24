@@ -72,7 +72,7 @@ table {
   width: 100%;
   margin-top: 20px;
   border-collapse: collapse;
-  font-size: 1.2vw;
+  font-size: 2vw;
   border-radius: 8px;
   overflow-x: auto; /* Add horizontal scroll for small screens */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
