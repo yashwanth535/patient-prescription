@@ -51,7 +51,10 @@ label {
   color: #090c0c;
 }
 
+
 input{
+  margin: 4px;
+  border-radius: 10px;
   font-size: 16px;
   padding:7px;
   background-color: #e3eed8;
