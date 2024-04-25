@@ -31,7 +31,7 @@
     <a href='https://cvr-1bsr.onrender.com/' target="_blank"> 
         <button >enter data</button></a> 
     <button id="viewFullTable">View Full Table</button>
-    <div class="invalid-input" id="invalidInputMsg">Input is invalid. Please provide a valid input.</div>
+    <div class="invalid-input" id="invalidInputMsg" style="display:none">data not Found</div>
    <!-- Place this div where your table will be loaded -->
 <div class="table-responsive" id="dataTable"></div>
 </main>
@@ -98,7 +98,13 @@
                     // Assuming the 'Name' is in the first column
                     return cells[0].trim().toLowerCase() === nameInput;
                 });
-                displayData(filteredRows);
+                if (filteredRows.length === 0) {
+                    document.getElementById('invalidInputMsg').style.display = 'block';
+                }
+                     else {
+    
+                       displayData(filteredRows);
+                      }
             })
             .catch(error => {
                 console.error('Error:', error);

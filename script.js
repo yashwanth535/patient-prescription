@@ -97,7 +97,13 @@ function loadData() {
               // Assuming the 'Name' is in the first column
               return cells[0].trim().toLowerCase() === nameInput;
           });
-          displayData(filteredRows);
+          if (filteredRows.length === 0) {
+            document.getElementById('invalidInputMsg').style.display = 'block';
+        }
+             else {
+
+               displayData(filteredRows);
+              }
       })
       .catch(error => {
           console.error('Error:', error);
@@ -120,7 +126,7 @@ document.getElementById('nameInput').addEventListener('keyup', function (event) 
 
 document.getElementById('viewFullTable').addEventListener('click', function () {
 // Show the full table
-fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRr9KFdCWZkAT5KQq3DkQYZYQdTsjtQ7YI_U1-vasToAgPmrDCmOIRLxIQEMTllH2a9KTI5b0SWXZmG/pub?output=csv')
+fetch(url)
   .then(response => response.text())
   .then(data => {
     const rows = data.split('\n').slice(1); // Skip header row
