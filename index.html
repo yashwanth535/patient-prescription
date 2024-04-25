@@ -27,7 +27,7 @@
 
 </nav>
 
-<main id="loginPage" class="login-container">
+<main id="loginPage" class="container">
     <!-- Login form -->
     <form id="loginForm">
         <label for="username">Username:</label>
@@ -36,11 +36,11 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
         <!-- Toggle Button -->
-        <button type="toggle" id="togglePassword" style="cursor: pointer;">Show</button>
+        <button id="togglePassword" style="cursor: pointer;">Show</button>
         
         
         <br>
-        <button type="toggle">Login</button>
+        <button >Login</button>
     </form>
     <!-- End of login form -->
 </main>
@@ -52,7 +52,8 @@
   <a href='https://cvr-1bsr.onrender.com/' target="_blank"> 
       <button >
           enter data
-      </button></a><button id="viewFullTable">View Full Table</button>
+      </button>
+  </a>
   <div class="invalid-input" id="invalidInputMsg" style="display:none">Input is invalid. Please provide a valid input.</div>
  
   <div class="table-responsive" id="dataTable"></div>

@@ -124,18 +124,6 @@ document.getElementById('nameInput').addEventListener('keyup', function (event) 
   }
 });
 
-document.getElementById('viewFullTable').addEventListener('click', function () {
-// Show the full table
-fetch(url)
-  .then(response => response.text())
-  .then(data => {
-    const rows = data.split('\n').slice(1); // Skip header row
-    displayData(rows);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-});
 
 function displayData(rows) {
 let html = '<table><tr><th>Name</th><th>Dept Name</th><th>Complaint</th><th>Treatment</th><th>prescribed by</th><th>Date</th><th>Time</th></tr>';
