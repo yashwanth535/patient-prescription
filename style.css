@@ -45,6 +45,23 @@ nav a:hover{
 
 }
 
+
+.login-container{
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+  background-color: #eee8d5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
+}
+
+
+
+
+
 main {
   margin: 20px auto;
   background-color: #eee8d5;
