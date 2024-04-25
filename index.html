@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
-<!DOCTYPE HTML>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,201 +12,99 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <title>DISPENSARY MANAGEMENT-CVR</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #333; /* Black background */
-            color: #fff; /* White text */
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-
-        header, footer {
-            flex-shrink: 0; /* Prevent header and footer from shrinking */
-        }
-
-        main {
-            flex: 1; /* Allow main content to grow and fill available space */
-            overflow: auto; /* Add scroll to main content if needed */
-        }
-
-        header {
-            background-color: #f90; /* Orange header */
-            padding: 20px 0;
-            text-align: center;
-            color: #333; /* Black text */
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        nav {
-            background-color: #444; /* Gray navigation */
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        main {
-            padding: 20px;
-            text-align: center;
-        }
-
-        label, .invalid-input, button, #loadingSpinner {
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        input, button {
-            width: 70%;
-            max-width: 400px; /* Limit width on large screens */
-            margin: auto; /* Center align */
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            table-layout: fixed; /* Prevent table from overflowing the parent */
-        }
-
-        th, td {
-            word-wrap: break-word; /* Ensure text wraps within cells */
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f90;
-            color: #fff;
-        }
-
-        td {
-            background-color: #666;
-        }
-
-        @media (max-width: 768px) {
-            input, button {
-                width: 90%; /* Increase width on smaller screens */
-            }
-
-            table {
-                font-size: 14px; /* Smaller font size on small screens */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
+
 <body>
 <header>
     CVR - Data Filter
 </header>
+<nav id="navigation" style="display: none;">
+  <a href="#" onclick="home()">Home</a>
+  <a href="#" onclick="about()">About</a>
+  <a href="#" onclick="showContact()">Contact</a>
 
-<nav>
-    <a href="https://yashwanth679.github.io/vishnu/rakesh.html">Home</a>
-    <a href="https://yashwanth679.github.io/vishnu/about.html" target="_blank">About</a>
-    <a href="https://yashwanth679.github.io/vishnu/contact.html" target="_blank">Contact</a>
 </nav>
 
-<main>
-    <label for="nameInput">Enter Name:</label>
-    <input type="text" id="nameInput" placeholder="Name">
-    <button id="loadData">Load Data</button>
-    <a href='https://cvr-1bsr.onrender.com/' target="_blank"> 
-        <button >
-            enter data
-        </button> 
-    </a> 
-    <button id="viewFullTable">View Full Table</button>
-    <div class="invalid-input" id="invalidInputMsg">Input is invalid. Please provide a valid input.</div>
-    <div id="loadingSpinner">Loading...</div>
-    <div style="overflow-x:auto;">
-        <table id="dataTable"></table>
-    </div>
+<main id="loginPage" >
+    <!-- Login form -->
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <!-- Toggle Button -->
+        <button type="togglebutton" id="togglePassword" style="cursor: pointer;">Show</button>
+        
+        
+        <br>
+        <button type="submit">Login</button>
+    </form>
+    <!-- End of login form -->
 </main>
+
+<main id="mainContent" style="display: none;">
+  <label for="nameInput">Enter Name:</label>
+  <input type="text" id="nameInput" placeholder="Name">
+  <button id="loadData">Load Data</button>
+  <a href='https://cvr-1bsr.onrender.com/' target="_blank"> 
+      <button >
+          enter data
+      </button> 
+  </a> 
+  <button id="viewFullTable">View Full Table</button>
+  <div class="invalid-input" id="invalidInputMsg">Input is invalid. Please provide a valid input.</div>
+ 
+  <div class="table-responsive" id="dataTable"></div>
+ 
+
+</main>
+
+
+
+<main id="contactcontent" style="display: none;">
+      
+    <h1>CONTACT</h1> 
+    </br></br></br>
+    
+    
+    <h2> EMAIL </h2>
+    </br>
+    <h3>
+    <div class="button"><img src="pngwing.com.png" width="30" height="20">  Mail To:<a href="mailto:22B81A05AR@cvr.ac.in">RAKESH</a></div></br></br>
+    <div class="button"><img src="pngwing.com.png" width="30" height="20">Mail To:<a href="mailto:22B81A05BV@cvr.ac.in">VISHNU</a></div></br></br>
+    <div class="button"><img src="pngwing.com.png" width="30" height="20">Mail To:<a href="mailto:22B81A05BW@cvr.ac.in">YASHWANTH</a></div></br>
+    </h3>
+    
+    <h2> INSTAGRAM </h2>
+    </br>
+    <h3>
+    <div class="button"><img src="pngwing.com2.png" width="30" height="30"> DM To:<a href="https://www.instagram.com/rakeshyadhav21/" target="_blank">RAKESH</a></div></br></br>
+    <div class="button"><img src="pngwing.com2.png" width="30" height="30">DM To:<a href="https://www.instagram.com/vishnu_kanala/" target="_blank">VISHNU</a></div></br></br>
+    <div class="button"><img src="pngwing.com2.png" width="30" height="30">DM To:<a href="https://www.instagram.com/yashwanth_munikuntla/" target="_blank">YASHWANTH</a></div></br>
+    </h3>
+    
+        </main>
+
+
+
+
+<main id="aboutpage" style="display: none;">
+
+<p>this is the project of the cvr students</p>
+
+
+
+
+    </main>
 
 <footer>
     &copy; 2024 CVR Company. All rights reserved.
 </footer>
+<script src="script.js"></script>
 
-
-<script>
-    function loadData() {
-        const nameInput = document.getElementById('nameInput').value.trim().toLowerCase();
-        const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRr9KFdCWZkAT5KQq3DkQYZYQdTsjtQ7YI_U1-vasToAgPmrDCmOIRLxIQEMTllH2a9KTI5b0SWXZmG/pub?output=csv';
-
-        if (nameInput === "") {
-            document.getElementById('invalidInputMsg').style.display = 'block';
-            document.getElementById('dataTable').innerHTML = ''; // Clear table on invalid input
-            document.getElementById('loadingSpinner').style.display = 'none'; // Hide loading spinner
-            return;
-        } else {
-            document.getElementById('invalidInputMsg').style.display = 'none';
-        }
-
-        document.getElementById('loadingSpinner').style.display = 'block'; // Show loading spinner
-
-        fetch(url)
-            .then(response => response.text())
-            .then(data => {
-                const rows = data.split('\n').slice(1); // Skip header row
-                const filteredRows = rows.filter(row => {
-                    const cells = row.split(',');
-                    // Assuming the 'Name' is in the first column
-                    return cells[0].trim().toLowerCase() === nameInput;
-                });
-                displayData(filteredRows);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('loadingSpinner').style.display = 'none'; // Hide loading spinner in case of an error
-            })
-            .finally(() => {
-                document.getElementById('loadingSpinner').style.display = 'none'; // Hide loading spinner
-            });
-    }
-
-    // Event listener for the "Load Data" button click
-    document.getElementById('loadData').addEventListener('click', loadData);
-
-    // Event listener for the Enter key on the nameInput field
-    document.getElementById('nameInput').addEventListener('keyup', function (event) {
-        if (event.key === 'Enter') {
-            loadData();
-        }
-    });
-
-    document.getElementById('viewFullTable').addEventListener('click', function () {
-      // Show the full table
-      fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRr9KFdCWZkAT5KQq3DkQYZYQdTsjtQ7YI_U1-vasToAgPmrDCmOIRLxIQEMTllH2a9KTI5b0SWXZmG/pub?output=csv')
-        .then(response => response.text())
-        .then(data => {
-          const rows = data.split('\n').slice(1); // Skip header row
-          displayData(rows);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    });
-
-    function displayData(rows) {
-      let html = '<table><tr><th>Name</th><th>Dept No</th><th>Complaint</th><th>Treatment1</th><th>Treatment2</th></tr>';
-      rows.forEach(row => {
-        const cells = row.split(',');
-        html += `<tr><td>${cells[0]}</td><td>${cells[1]}</td><td>${cells[2]}</td><td>${cells[3]}</td><td>${cells[4]}</td></tr>`;
-      });
-      html += '</table>';
-      document.getElementById('dataTable').innerHTML = html;
-    }
-</script>
 
 
 </body>
