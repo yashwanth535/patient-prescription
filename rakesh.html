@@ -21,10 +21,10 @@
 <nav>
     <a href="https://yashwanth679.github.io/vishnu/rakesh.html">Home</a>
     <a href="https://yashwanth679.github.io/vishnu/about.html" target="_blank">About</a>
-    <a href="https://yashwanth679.github.io/vishnu/contact.html" target="_blank">Contact</a>
+    <a href="#" onclick="showContact()">Contact</a>
 </nav>
 
-<main>
+<main id="maindata">
     <label for="nameInput">Enter Name:</label>
     <input type="text" id="nameInput" placeholder="Name">
     <button id="loadData">Load Data</button>
@@ -34,11 +34,34 @@
     <div class="invalid-input" id="invalidInputMsg">Input is invalid. Please provide a valid input.</div>
    <!-- Place this div where your table will be loaded -->
 <div class="table-responsive" id="dataTable"></div>
-
-   
-   
-
 </main>
+
+<main id="contact" style="display: none;">
+      
+<h1>CONTACT</h1> 
+</br></br></br>
+
+
+<h2> EMAIL </h2>
+</br>
+<h3>
+<div class="button"><img src="pngwing.com.png" width="30" height="20">  Mail To:<a href="mailto:22B81A05AR@cvr.ac.in">RAKESH</a></div></br></br>
+<div class="button"><img src="pngwing.com.png" width="30" height="20">Mail To:<a href="mailto:22B81A05BV@cvr.ac.in">VISHNU</a></div></br></br>
+<div class="button"><img src="pngwing.com.png" width="30" height="20">Mail To:<a href="mailto:22B81A05BW@cvr.ac.in">YASHWANTH</a></div></br>
+</h3>
+
+<h2> INSTAGRAM </h2>
+</br>
+<h3>
+<div class="button"><img src="pngwing.com2.png" width="30" height="30"> DM To:<a href="https://www.instagram.com/rakeshyadhav21/" target="_blank">RAKESH</a></div></br></br>
+<div class="button"><img src="pngwing.com2.png" width="30" height="30">DM To:<a href="https://www.instagram.com/vishnu_kanala/" target="_blank">VISHNU</a></div></br></br>
+<div class="button"><img src="pngwing.com2.png" width="30" height="30">DM To:<a href="https://www.instagram.com/yashwanth_munikuntla/" target="_blank">YASHWANTH</a></div></br>
+</h3>
+
+    </main>
+
+
+
 
 <footer>
     &copy; 2024 CVR College Of Engineering. All rights reserved.
@@ -46,6 +69,10 @@
 
 
 <script>
+    function showContact(){
+        document.getElementById('maindata').style.display = 'none';
+                document.getElementById('contact').style.display = 'block';
+    }
     function loadData() {
         const nameInput = document.getElementById('nameInput').value.trim().toLowerCase();
         const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRr9KFdCWZkAT5KQq3DkQYZYQdTsjtQ7YI_U1-vasToAgPmrDCmOIRLxIQEMTllH2a9KTI5b0SWXZmG/pub?output=csv';
