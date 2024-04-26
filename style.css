@@ -8,6 +8,10 @@ body {
   color: #657b83;
 }
 
+h1 {
+  text-align: center;
+}
+
 /* Header styles */
 header {
  background-color: #eee8d5;
@@ -45,6 +49,18 @@ nav a:hover{
 
 }
 
+
+.contact{
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+  background-color: #f3f2ee;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
+}
 
 .container{
   width: 300px;
