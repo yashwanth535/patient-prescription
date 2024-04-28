@@ -107,15 +107,12 @@ function loadData() {
       })
       .catch(error => {
           console.error('Error:', error);
-          document.getElementById('loadingSpinner').style.display = 'none'; // Hide loading spinner in case of an error
+         
       })
-      .finally(() => {
-          document.getElementById('loadingSpinner').style.display = 'none'; // Hide loading spinner
-      });
+      
 }
 
-// Event listener for the "Load Data" button click
-document.getElementById('loadData').addEventListener('click', loadData);
+
 
 // Event listener for the Enter key on the nameInput field
 document.getElementById('nameInput').addEventListener('keyup', function (event) {
