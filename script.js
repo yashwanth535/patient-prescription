@@ -1,33 +1,43 @@
+function hideAllSections() {
+  var sections = ['loginPage', 'mainContent', 'aboutpage', 'contactcontent'];
+
+  sections.forEach(function(id) {
+    var section = document.getElementById(id);
+    if (section) {
+      section.style.display = 'none';
+    }
+  });
+}
 
 
 
-function home(){
-  document.getElementById('loginPage').style.display = 'none';
+
+function showhome(){
+  hideAllSections();
   document.getElementById('mainContent').style.display = 'block';
-  document.getElementById('aboutpage').style.display = 'none'
-  document.getElementById('contactcontent').style.display = 'none'
+  
 }
 function showContact(){
-  document.getElementById('loginPage').style.display = 'none';
-  document.getElementById('mainContent').style.display = 'none';
-  document.getElementById('aboutpage').style.display = 'none'
+  hideAllSections();
   document.getElementById('contactcontent').style.display = 'block'
 }
-function about(){
-  document.getElementById('loginPage').style.display = 'none';
-  document.getElementById('mainContent').style.display = 'none';
-          document.getElementById('contactcontent').style.display = 'none'
+function showabout(){
+  hideAllSections();
           document.getElementById('aboutpage').style.display = 'block'
 }
 
 document.getElementById('togglePassword').addEventListener('click', function () {
 // Find the password input
-const passwordInput = document.getElementById('password');
-// Check the current type and toggle
-const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-passwordInput.setAttribute('type', type);
-// Toggle the button text/icon
-this.textContent = type === 'password' ? 'Show' : 'Hide';
+var passwordInput = document.getElementById('password');
+var toggle=document.getElementById('togglePassword');
+if(passwordInput.type === 'password'){
+  passwordInput.type = 'text';
+  toggle.textContent = 'hide';
+}
+else if(passwordInput.type === 'text'){
+  passwordInput.type = 'password';
+  toggle.textContent = 'show';
+}
 });
 
 // Function to handle login
