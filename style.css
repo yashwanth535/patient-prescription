@@ -1,6 +1,4 @@
-/* Warm & Cozy Design */
 
-/* Body styles */
 body {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #fdf6e3;
@@ -8,11 +6,14 @@ body {
   color: #657b83;
 }
 
+
+
+
 h1 {
   text-align: center;
 }
 
-/* Header styles */
+
 header {
  background-color: #eee8d5;
   padding: 20px 0;
@@ -24,7 +25,7 @@ header {
 }
 
 
-/* Navigation styles */
+
 nav {
   background-color: #b58900;
   padding: 10px 0;
@@ -169,11 +170,53 @@ td {
   border-radius: 8px; /* Optional: if you want rounded corners */
 }
 
+input.in{
 
+  width: 100%;
+ 
+  margin-bottom: 10px;
+
+  border-radius: 5px;
+  background-color: #e3eed8;
+  border: 2px solid #93a1a1;
+  color: #586e75;
+  /* box-sizing: border-box; */
+}
+
+
+div#dataenter{
+
+ 
+  
+ 
+  background-color: #eee8d5;
+
+  border-collapse: collapse;
+  border-radius:8px;
+  margin:0 auto;
+  
+  max-width: 500px;
+  position:relative;
+  padding:20px;
+
+  margin-top:6px;
+
+
+  box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.1);
+
+} 
+form {
+  
+  margin:0 auto;
+
+ position:relative;
+  max-width: 400px;
+
+} 
 /* Responsive adjustments */
 @media only screen and (max-width: 768px) {
   main, input {
     width: 90%;
-  }
+  } 
  
 }

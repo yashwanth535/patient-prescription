@@ -1,5 +1,5 @@
 function hideAllSections() {
-  var sections = ['loginPage', 'mainContent', 'aboutpage', 'contactcontent'];
+  var sections = ['loginPage', 'mainContent', 'aboutpage', 'contactcontent','dataenter'];
 
   sections.forEach(function(id) {
     var section = document.getElementById(id);
@@ -8,9 +8,17 @@ function hideAllSections() {
     }
   });
 }
+function trial(){
+  document.getElementById('loginPage').style.display = 'none';
+          document.getElementById('mainContent').style.display = 'block';
+          
+          document.getElementById('navigation').style.display = 'block';
+}
 
-
-
+function showdata(){
+  hideAllSections();
+  document.getElementById('dataenter').style.display = 'block';
+}
 
 function showhome(){
   hideAllSections();
@@ -38,6 +46,21 @@ else if(passwordInput.type === 'text'){
   passwordInput.type = 'password';
   toggle.textContent = 'show';
 }
+});
+
+//enter the data
+var form = document.getElementById('sheetdb-form');
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  fetch(form.action, {
+      method : "POST",
+      body: new FormData(document.getElementById("sheetdb-form")),
+  }).then(
+      response => response.json()
+  ).then((html) => {
+   
+    alert('success')
+  });
 });
 
 // Function to handle login

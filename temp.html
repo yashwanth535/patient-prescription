@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title>Add patient details </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="./style.css"> -->
+  
+</head>
+<style>
+
+div{
+
+ 
+  background-color: #eee8d5;
+
+  border-collapse: collapse;
+  border-radius:8px;
+  margin:0 auto;
+  
+  max-width: 500px;
+  position:relative;
+  padding:20px;
+  padding-top:2px;
+  margin-top:6px;
+
+
+  box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.1);
+
+}
+body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdf6e3;
+  color: #657b83;
+ 
+}
+
+h1 {
+ 
+  font-family: 'Georgia', serif;
+  color: #0e0e0e;
+  border: #0d0303;
+}
+
+form {
+  
+  margin:0 auto;
+  position: relative;
+  max-width: 400px;
+}
+
+label {
+  color: #090c0c;
+}
+
+
+input {
+
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+
+  border-radius: 5px;
+  background-color: #e3eed8;
+  border: 2px solid #93a1a1;
+  color: #586e75;
+  /* box-sizing: border-box; */
+}
+
+input:hover{
+  padding: 9px;
+}
+
+button {
+  margin: 0.5vw;
+  background-color: #b58900;
+  padding:3px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover{
+  background-color: #e3d7d7;
+  border: 2px solid #93a1a1;
+  color:#0d0303;
+}
+
+@media only screen and (max-width: 768px) {
+  main, input, button {
+    width: 90%;
+  }
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top: 6px;
+  height: 30px;
+  background-color: #b58900;
+  color: white;
+  text-align: center;
+}
+
+header {
+ background-color: #eee8d5;
+  padding: 10px 0;
+  position:relative;
+  text-align: center;
+  color: #586e75;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+</style>
+<body>
+  <header>
+    Patient--prescription Management System
+   
+</header>
+<div>
+  <h1 style="text-align:center; color: #586e75;;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Add patient data</h1>
+<form id="addDataForm" >
+  <label for="nameInputtt">Name:</label>
+  <input type="text" id="nameInput" name="name" required>
+
+  <label for="deptInput">Department Number:</label>
+  <input type="text" id="deptInput" name="department" required>
+
+  <label for="complaintInput">Complaint:</label>
+  <input type="text" id="complaintInput" name="complaint" required>
+
+  <label for="treatmentInput">Treatment:</label>
+  <input type="text" id="treatment1Input" name="treatment" required>
+
+  <label for="prescribed_byInput">prescribed_by:</label>
+  <input type="text" id="prescribed_byInput" name="prescribed_by" required>
+  
+  <label for="dateInput">date:</label>
+  <input type="text" id="dateInput" name="date" required>
+
+  <label for="timeInput">time:</label>
+  <input type="text" id="timeInput" name="time" required>
+
+  <button type="submit">Add Data</button>
+</form>
+</div>
+<script>
+document.getElementById('addDataForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const formData = new FormData(this);
+
+  fetch('/addData', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(Object.fromEntries(formData)),
+  })
+    .then(response => response.json())
+    .then(data => {
+      alert(data.message);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+});
+</script>
+<footer>
+  &copy; 2024 CVR Company. All rights reserved.
+</footer>
+</body>
+</html>

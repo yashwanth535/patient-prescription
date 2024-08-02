@@ -4,13 +4,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
     <title>DISPENSARY MANAGEMENT-CVR</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
@@ -30,7 +23,7 @@
 
 
 <main id="loginPage" class="container">
-    <!-- Login form -->
+ 
     <form id="loginForm">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
@@ -43,6 +36,7 @@
         
         <br>
         <button >Login</button>
+        <button onclick="trial()">click</button>
     </form>
     <!-- End of login form -->
 </main>
@@ -51,14 +45,15 @@
   <label for="nameInput">Enter Name:</label>
   <input type="text" id="nameInput" placeholder="Name">
   <button onclick="loadData()">Load Data</button>
+  <button onclick="showdata()">enter data</button>
   <a href='https://cvr-1bsr.onrender.com/' target="_blank"> 
       <button >
-          enter data
+          render
       </button>
   </a>
   <a href='https://app-ten-ruddy-34.vercel.app/' target="_blank"> 
     <button >
-        enter data(link2)
+        vercel
     </button>
 </a>
   <div class="invalid-input" id="invalidInputMsg" style="display:none">Input is invalid. Please provide a valid input.</div>
@@ -112,6 +107,35 @@
 
 
     </main>
+
+    <div id="dataenter" style="display:none;">
+        <h1 style="text-align:center; color: #586e75;;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Add patient data</h1>
+        <form
+        method="post"
+        action="https://sheetdb.io/api/v1/q4inzmzh9kw1e" id="sheetdb-form">
+        <label for="name">Name</label>
+        <input class="in" name="data[NAME]" required>
+        <label for="name">department</label>
+        <input class="in" name="data[DEPT NO]" required>
+        <label for="name">complaint</label>
+        <input class="in" name="data[COMPLAINT]" required>
+        <label for="name">treatment</label>
+        <input class="in" name="data[TREATMENT]" required>
+        <label for="name">prescribed bt</label>
+        <input class="in" name="data[prescribed by]" required>
+
+       <label for="name">date</label>
+       <input class="in" name="data[date]">
+       <label for="name">time</label>
+       <input class="in" name="data[time]">
+    
+        <button type="submit">Submit</button>
+      
+     
+      </form>
+      </div>
+
+
 
 <footer>
     &copy; 2024 CVR Company. All rights reserved.
