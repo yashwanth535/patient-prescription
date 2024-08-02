@@ -8,12 +8,7 @@ function hideAllSections() {
     }
   });
 }
-function trial(){
-  document.getElementById('loginPage').style.display = 'none';
-          document.getElementById('mainContent').style.display = 'block';
-          
-          document.getElementById('navigation').style.display = 'block';
-}
+
 
 function showdata(){
   hideAllSections();
