@@ -142,6 +142,7 @@ table {
   overflow-x: auto; /* Add horizontal scroll for small screens */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 th, td {
