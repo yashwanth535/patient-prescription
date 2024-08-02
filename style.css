@@ -20,6 +20,7 @@ header {
   color: #586e75;
   font-size: 24px;
   font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
@@ -89,7 +90,7 @@ main {
 /* Form styles */
 label, input, button {
   
-  font-family: 'Georgia', serif;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 label {
