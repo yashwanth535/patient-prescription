@@ -1,36 +1,16 @@
-function hideAllSections() {
-  var sections = ['loginPage', 'mainContent', 'aboutpage', 'contactcontent','dataenter'];
-
-  sections.forEach(function(id) {
-    var section = document.getElementById(id);
-    if (section) {
-      section.style.display = 'none';
-    }
-  });
-}
 
 
-function showdata(){
-  hideAllSections();
-  document.getElementById('dataenter').style.display = 'block';
+function showAll(id){
+  var elements = document.getElementsByClassName("close");
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].style.display = 'none';
+  }
+  document.getElementById(id).style.display = 'block';
 }
 
-function showhome(){
-  hideAllSections();
-  document.getElementById('mainContent').style.display = 'block';
-  
-}
-function showContact(){
-  hideAllSections();
-  document.getElementById('contactcontent').style.display = 'block'
-}
-function showabout(){
-  hideAllSections();
-          document.getElementById('aboutpage').style.display = 'block'
-}
 
 document.getElementById('togglePassword').addEventListener('click', function () {
-// Find the password input
+
 var passwordInput = document.getElementById('password');
 var toggle=document.getElementById('togglePassword');
 if(passwordInput.type === 'password'){
@@ -43,7 +23,7 @@ else if(passwordInput.type === 'text'){
 }
 });
 
-//enter the data
+
 var form = document.getElementById('sheetdb-form');
 form.addEventListener("submit", e => {
   e.preventDefault();
@@ -58,9 +38,9 @@ form.addEventListener("submit", e => {
   });
 });
 
-// Function to handle login
+
 document.getElementById('loginForm').addEventListener('submit', function(event) {
-event.preventDefault(); // Prevent the default form submission
+event.preventDefault(); 
 
 // Get the entered username and password
 var enteredUsername = document.getElementById('username').value.trim().toLowerCase();
@@ -82,10 +62,9 @@ fetch(credentialsUrl)
       });
 
       if (validCredentials) {
-          // Hide the login page and show the main content
+        
           document.getElementById('loginPage').style.display = 'none';
           document.getElementById('mainContent').style.display = 'block';
-          
           document.getElementById('navigation').style.display = 'block';
 
 

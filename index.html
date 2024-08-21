@@ -14,15 +14,15 @@
 <header>
     Patient--prescription Management System
     <nav id="navigation" style="display: none;">
-        <a href="#" onclick="showhome()">Home</a>
-        <a href="#" onclick="showabout()">About</a>
-        <a href="#" onclick="showContact()">Contact</a>
+        <a href="#" onclick="showAll('mainContent')">Home</a>
+        <a href="#" onclick="showAll('aboutpage')">About</a>
+        <a href="#" onclick="showAll('contactcontent')">Contact</a>
       
       </nav>
 </header>
 
 
-<main id="loginPage" class="container">
+<main id="loginPage" class="close container">
  
     <form id="loginForm">
         <label for="username">Username:</label>
@@ -38,14 +38,15 @@
         <button >Login</button>
       
     </form>
-    <!-- End of login form -->
+    <button onclick="showAll('mainContent')">click</button>
+  
 </main>
 
-<main id="mainContent" style="display: none;">
+<main id="mainContent"  class="close"  style="display: none;">
   <label for="nameInput">Enter Name:</label>
   <input type="text" id="nameInput" placeholder="Name">
   <button onclick="loadData()">Load Data</button>
-  <button onclick="showdata()">enter data</button>
+  <button onclick="showAll('dataenter')">enter data</button>
   <a href='https://cvr-1bsr.onrender.com/' target="_blank"> 
       <button >
           render</button></a><a href='https://app-ten-ruddy-34.vercel.app/' target="_blank"><button>vercel
@@ -60,7 +61,7 @@
 
 
 
-<main id="contactcontent" style="display: none;">
+<main id="contactcontent"  class="close" style="display: none;">
       
     <h1>CONTACT</h1> 
   
@@ -94,7 +95,7 @@
 
 
 
-<main id="aboutpage" style="display: none;">
+<main id="aboutpage"  class="close" style="display: none;">
 
 <p>this is the project of the cvr students</p>
 
@@ -103,7 +104,7 @@
 
     </main>
 
-    <div id="dataenter" style="display:none;">
+<div id="dataenter"  class="close" style="display:none;">
         <h1 style="text-align:center; color: #586e75;;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Add patient data</h1>
         <form
         method="post"
