@@ -6,6 +6,7 @@ function showAll(id){
     elements[i].style.display = 'none';
   }
   document.getElementById(id).style.display = 'block';
+  document.getElementById('navigation').style.display='block';
 }
 
 

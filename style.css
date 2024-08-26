@@ -1,32 +1,13 @@
-
-body {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fdf6e3;
-  
-  color: #657b83;
-}
-
-
-
-
-h1 {
-  text-align: center;
-}
-
-
 header {
- background-color: #eee8d5;
-  padding: 20px 0;
-  text-align: center;
-  color: #586e75;
-  font-size: 24px;
-  font-weight: bold;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-
-
-nav {
+  background-color: #eee8d5;
+   padding: 20px 0;
+   text-align: center;
+   color: #586e75;
+   font-size: 24px;
+   font-weight: bold;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+ nav {
   background-color: #b58900;
   padding: 10px 0;
   text-align: center;
@@ -50,16 +31,58 @@ nav a:hover{
   font-size: 18px;
 
 }
+body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdf6e3;
+  
+  color: #657b83;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top: 6px;
+  height: 30px;
+  background-color: #b58900;
+  color: white;
+  text-align: center;
+}
 
 
-.contact{
-  width: 300px;
-  height: 300px;
+h1 {
+  text-align: center;
+}
+
+img{
+  vertical-align: middle;
+}
+
+main {
   margin: 20px auto;
-  background-color: #f3f2ee;
+  background-color: #eee8d5;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+.contact{
+  display:inline-block;
+  width: 300px;
+  height: 300px;
+  margin: 0 180px;
+  background-color: #f3f2ee;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+
 
 
 }
@@ -76,27 +99,24 @@ nav a:hover{
 
 }
 
-
-
-
-
-main {
-  margin: 20px auto;
-  background-color: #eee8d5;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Form styles */
 label, input, button {
   
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 label {
+  display:block;
   color: #090c0c;
 }
+
+
+
+
+
+
+
+
+
 
 
 input{
@@ -117,17 +137,7 @@ button {
   border: none;
   border-radius: 4px;
 }
-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  padding-top: 6px;
-  height: 30px;
-  background-color: #b58900;
-  color: white;
-  text-align: center;
-}
+
 
 button:hover{
   background-color: #e3d7d7;
@@ -170,53 +180,56 @@ td {
   border-radius: 8px; /* Optional: if you want rounded corners */
 }
 
-input.in{
 
-  width: 100%;
- 
-  margin-bottom: 10px;
 
-  border-radius: 5px;
-  background-color: #e3eed8;
-  border: 2px solid #93a1a1;
-  color: #586e75;
-  /* box-sizing: border-box; */
+
+
+
+.button{
+  height:3px;
 }
-
-
-div#dataenter{
-
- 
-  
- 
-  background-color: #eee8d5;
-
-  border-collapse: collapse;
-  border-radius:8px;
+.loginForm {
   margin:0 auto;
-  
-  max-width: 500px;
-  position:relative;
-  padding:20px;
-
-  margin-top:6px;
-
-
-  box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.1);
-
-} 
-form {
-  
-  margin:0 auto;
-
  position:relative;
   max-width: 400px;
 
 } 
+
 /* Responsive adjustments */
 @media only screen and (max-width: 768px) {
   main, input {
     width: 90%;
   } 
  
+}
+
+
+/* //dataentry */
+div#dataenter{
+  background-color: #eee8d5;
+  border-collapse: collapse;
+  border-radius:8px;
+  margin:0 auto;
+  max-width: 800px;
+  position:relative;
+  padding:20px;
+  margin-top:6px;
+  box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.1);
+} 
+.sheetdb-form{
+  margin:0 auto;
+ position:relative;
+  width: 800px;
+}
+.input-in{
+  display: inline-block;
+  margin:0px 90px;
+}
+input.in{
+  display:inline-block;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #e3eed8;
+  border: 2px solid #93a1a1;
+  color: #586e75;
 }
